@@ -1,0 +1,78 @@
+---
+import HeroSection from '../components/HeroSection.astro';
+import WavySections from '../components/WavySection.astro';
+import Faq from '../components/Faq.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from '../components/Navbar.astro';
+
+const faqs = [
+  {
+    question: "How do I ensure privacy and confidentiality during sessions?",
+    answer: "All conversations on Seen are anonymous and private. We'll guide you on best practices to maintain trust and safety.",
+  },
+  {
+    question: "Can I connect with other active listeners?",
+    answer: "Absolutely! You'll be part of a supportive community where listeners share experiences, tips, and encouragement.",
+  },
+];
+
+
+const cards = [
+  {
+    icon: "",
+    title: "card 1",
+    description: 'This is the first card description.',
+    color: 'bg-red-500',
+  },
+  {
+    icon: "",
+    title: "Card 2",
+    description: 'This is the second card description.',
+    color: 'bg-[#c5eaff]',
+  },
+  {
+    icon: '',
+    title: "Card 3",
+    description: 'This is the third card description.',
+    color: 'bg-[#95ffec]',
+  },
+];
+const sections = [
+  {
+    title: "Real-Time Support",
+    subtitle: "Connect instantly with trained listeners who are ready to hear you instead of booking in advance.",
+  },
+  {
+    title: "Safe & Anonymous",
+    subtitle: "Your stories are safe with us – share anonymously and freely.",
+  },
+  {
+    title: "Empathy at the Core",
+    subtitle: "Every listener is trained to understand and never judge.",
+  },
+  {
+    title: "Learn & Grow",
+    subtitle: "Explore active listening and emotional literacy through our tailored courses.",
+  },
+];
+
+---
+<Layout theme="confider">
+
+  <div class="flex flex-col items-center gap-12 mx-auto px-6 lg:px-8 max-w-[1480px]">
+    <Navbar />
+
+    <HeroSection
+		title="We are seen"
+		description="Where voices are heard, and hearts feel safe"
+		cards={cards}
+    headline="Seen is the first warm, safe space in the MENA region where emotions arewelcomed and understood. Through shared experiences, we connect you with empathetic trained listeners, offering a haven for your thoughts and a place to truly feel heard in a non-judgmental space."
+    />
+    <WavySections sections={sections} />
+    <Faq faqs={faqs} />
+  </div>
+  
+</div>
+</Layout>
+
+

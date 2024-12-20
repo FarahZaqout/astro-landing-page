@@ -1,0 +1,44 @@
+---
+const { title, description, headline } = Astro.props;
+import Cta from './Cta.astro';
+
+---
+
+<style>
+  .gradient-section {
+    background: linear-gradient(to right, #c5eaff 50%, #95ffec 50%);
+  }
+
+  @media (max-width: 768px) {
+    .gradient-section {
+      background: linear-gradient(to bottom, #c5eaff 50%, #95ffec 50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      min-height: 250px;
+    }
+  }
+</style>
+
+<section class="relative py-24 w-full h-screen">
+  <div class="mb-12 text-center">
+    <h1 class="font-bold text-4xl text-gray-900">{title}</h1>
+    <p class="mt-4 text-gray-600 text-lg">{description}</p>
+    <p class="mx-auto mt-4 max-w-[80%] text-gray-600 text-lg">{headline}</p>
+  </div>
+  <Cta />
+  <!-- Cards Section -->
+  <!-- <div class="flex md:flex-row flex-col justify-center items-stretch md:space-x-6 space-y-6 md:space-y-0 rounded-[60px] min-h-[150px] gradient-section">
+    {cards.map((card: {color: string; icon: string; title: string; description: string;}, index: number) => (
+      <div
+        class={`card w-full md:w-[33%] ${card.color} text-black rounded-[60px] p-6 flex flex-col min-h-[300px]`}
+      >
+        <div class="mb-4 text-5xl">{card.icon}</div>
+        <h3 class="mb-2 font-semibold text-2xl">{card.title}</h3>
+        <p class="text-sm">{card.description}</p>
+      </div>
+    ))}
+  </div> -->
+</section>

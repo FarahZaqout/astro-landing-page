@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html.confider {
+    --tw-text-primary: theme("colors.confider.primary");
+    --tw-text-secondary: theme("colors.confider.secondary");
+    --tw-bg-primary: theme("colors.confider.bgPrimary");
+    --tw-bg-secondary: theme("colors.confider.bgSecondary");
+}
+
+html.confidant {
+    --tw-text-primary: theme("colors.confidant.primary");
+    --tw-text-secondary: theme("colors.confidant.secondary");
+    --tw-bg-primary: theme("colors.confidant.bgPrimary");
+    --tw-bg-secondary: theme("colors.confidant.bgSecondary");
+}

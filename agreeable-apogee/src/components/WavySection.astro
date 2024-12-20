@@ -1,0 +1,101 @@
+---
+const { sections, bg } = Astro.props;
+---
+
+<style>
+  .wavy-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* desktop styles for wavy sections */
+  .wavy-section:nth-child(1) .child {
+    border-radius: 0 0 140px 0;
+  }
+  .wavy-section:nth-child(2) .child {
+    border-radius: 140px 140px 140px 0;
+  }
+  .wavy-section:nth-child(3) .child {
+    border-radius: 140px 0 0 140px;
+  }
+  .wavy-section:nth-child(4) .child {
+    border-radius: 140px 0 0 140px;
+  }
+  .wavy-section:nth-child(5) .child {
+    border-radius: 0 140px 140px 0;
+  }
+  .wavy-section:nth-child(6) .child {
+    border-radius: 0 140px 140px 0;
+  }
+  .wavy-section:nth-child(7) .child {
+    border-radius: 140px 0 140px 140px;
+  }
+  .wavy-section:nth-child(8) .child {
+    border-radius: 140px 0 0 0;
+  }
+
+  /* nobile styles */
+  @media (max-width: 768px) {
+    .wavy-section {
+      border-radius: 120px !important;
+    }
+    .wavy-section .child {
+      border-radius: 120px !important;
+    }
+
+    .wavy-section:nth-child(odd) {
+      background-color: var(--color-bg-primary);
+    }
+
+    .wavy-section:nth-child(odd) .child {
+      background-color: #ffffff;
+    }
+
+    .wavy-section:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    .wavy-section:nth-child(even) .child {
+      background-color: #C5EAFF;
+    }
+  }
+</style>
+
+<div>
+  <div class="p-8">
+    <h2 class="mb-4 font-bold text-3xl">Why emotional connection matters</h2>
+    <p class="text-lg">
+      <strong>75%</strong> of people feel unheard in their daily lives. Emotional isolation affects
+      millions, yet a simple conversation with an empathetic listener can create
+      transformative change. <strong>80%</strong> of participants in peer-led interventions reported
+      improved confidence and better coping strategies.
+    </p>
+  </div>
+
+  <div class="gap-8 md:gap-0 grid grid-cols-1 md:grid-cols-2 w-full">
+    {sections.map((section: { title: string; subtitle: string; }, index: number) => {
+      // blue parent with white child (always contains the text)
+      const blueParent = (
+        <div class="bg-confider-bgPrimary md:h-[700px] min-h-[400px] wavy-section">
+          <div class="absolute inset-0 bg-white child"></div>
+          <div class="relative z-10 space-y-4 p-12">
+            <h3 class="font-semibold text-3xl">{section.title}</h3>
+            <p class="text-lg">{section.subtitle}</p>
+          </div>
+        </div>
+      );
+
+      // white parent with blue child (always empty)
+      const whiteParent = (
+        <div class="bg-white md:h-[700px] min-h-[400px] wavy-section">
+          <div class={`absolute inset-0 bg-confider-bgPrimary child`}></div>
+        </div>
+      );
+
+      // render in the correct order as "tuples" of sorts
+      return index % 2 === 0 ? [blueParent, whiteParent] : [whiteParent, blueParent];
+    })}
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<section class="py-10 w-full">
+    <div class="flex flex-col items-center gap-8 mx-auto px-4 max-w-lg">
+      <h2 class="mb-8 font-bold text-4xl text-center">Choose Your Role</h2>
+  
+      <div class="flex items-center gap-8">
+        <span class="font-semibold text-2xl text-gray-700">Confider</span>
+        <div
+          id="switch"
+          class="relative flex-shrink-0 bg-gray-300 rounded-full w-28 h-14 cursor-pointer"
+          role="switch"
+          tabindex="0"
+        >
+          <div
+            id="toggle"
+            class="top-1 left-1 absolute bg-confider-bgPrimary rounded-full w-12 h-12 transition-transform"
+          ></div>
+        </div>
+        <span class="font-semibold text-2xl text-gray-700">Confidant</span>
+      </div>
+    </div>
+  
+    <script>
+        const toggle = document.getElementById("toggle");
+        const isConfidant = window.location.pathname === "/confidant";
+
+        // set the initial state of the toggle
+        if (isConfidant) {
+          toggle?.classList.add("translate-x-full");
+        } else {
+          toggle?.classList.remove("translate-x-full");
+        }
+  
+      document.getElementById("switch")?.addEventListener("click", () => {
+        const toggle = document.getElementById("toggle");
+        const isConfidant = toggle?.classList.toggle("translate-x-full");
+          window.location.href = isConfidant ? "/confidant" : "/confider";
+      });
+    </script>
+  </section>
+  

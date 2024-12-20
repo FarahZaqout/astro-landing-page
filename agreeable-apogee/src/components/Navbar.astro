@@ -1,0 +1,74 @@
+---
+const navLinks = [
+  { name: "HOME", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Become a Listener", href: "/listener" },
+  { name: "Why Seen", href: "/why-seen" },
+];
+---
+
+<header class="top-0 z-50 sticky bg-white shadow-md w-screen">
+  <nav class="items-center grid grid-cols-3 mx-auto px-6 py-4 w-screen max-w-7xl font-bold">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <a href="/" class="font-bold text-blue-600 text-xl">LOGO</a>
+    </div>
+
+    <!-- Center Links -->
+    <ul class="flex justify-center gap-6">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="inline-block min-w-24 text-center text-ellipsis text-gray-800 hover:text-blue-600 truncate transition-colors duration-300"
+          >
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Theme Toggle -->
+    <div class="flex justify-end items-center w-full">
+      <button
+        id="theme-toggle"
+        class="flex justify-center items-center bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full w-10 h-10 font-bold text-gray-600 transition-colors"
+        onclick="toggleTheme()"
+        aria-label="Toggle Theme"
+      >
+        <span id="theme-label">Li</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const themeLabel = document.getElementById("theme-label");
+
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      themeLabel!.textContent = "Li"; // Light theme
+    } else {
+      html.classList.add("dark");
+      themeLabel!.textContent = "Da"; // Dark theme
+    }
+  }
+
+  // Set default theme based on user's preference
+  window.addEventListener("load", () => {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const html = document.documentElement;
+    const themeLabel = document.getElementById("theme-label");
+
+    if (prefersDark) {
+      html.classList.add("dark");
+      themeLabel!.textContent = "Da";
+    } else {
+      html.classList.remove("dark");
+      themeLabel!.textContent = "Li";
+    }
+  });
+</script>

@@ -1,0 +1,115 @@
+---
+import HeroSection from '../components/HeroSection.astro';
+import WavySections from '../components/WavySection.astro';
+import Faq from '../components/Faq.astro';
+import "../styles/global.css";
+
+const faqs = [
+  {
+    question: "What is an active listener?",
+    answer:
+      "An active listener is someone who creates a safe, supportive space for others to share their thoughts and emotions without judgment, advice, or psycho-analysis. Someone who has personal experience in the topic being discussed.",
+  },
+  {
+    question: "Is Seen a substitute for professional therapy?",
+    answer:
+      "No, Seen is not a substitute for professional therapy or counseling. It provides emotional support through empathetic listening, but it does not offer clinical mental health services. For deeper emotional challenges, we recommend seeking a licensed mental health professional.",
+  },
+  {
+    question: "Do I need any prior experience?",
+    answer:
+      "No prior experience is needed—just a willingness to listen with empathy and an open heart. Having a psychological background is a bonus, though, as it can help you understand when professional help is needed and should be referred.",
+  },
+  {
+    question: "How much time do I need to commit?",
+    answer:
+      "Your schedule is completely flexible. You decide when and how often you listen.",
+  },
+  {
+    question: "Will I be paid for listening sessions?",
+    answer:
+      "Yes! Active listeners earn money for every completed session. It's a way to make an impact while building a sustainable income.",
+  },
+  {
+    question: "How do I handle difficult conversations?",
+    answer:
+      "You'll receive training and resources to navigate tough situations with care and confidence. Plus, the Seen team is here to support you alongside on-call mental health professionals.",
+  },
+  {
+    question: "What if I feel overwhelmed after a session?",
+    answer:
+      "It's okay to take a step back. You can pause, reflect, and reach out to the Seen community or team for guidance. You can always turn off your emotional capacity meter on Seen to be offline.",
+  },
+  {
+    question: "Are there any ongoing requirements to stay certified?",
+    answer:
+      "We encourage continuous learning through resources and occasional check-ins to ensure everyone feels confident and supported through our continuously updated educational library.",
+  },
+  {
+    question: "How do I ensure privacy and confidentiality during sessions?",
+    answer:
+      "All conversations on Seen are anonymous and private. We'll guide you on best practices to maintain trust and safety.",
+  },
+  {
+    question: "Can I connect with other active listeners?",
+    answer:
+      "Absolutely! You'll be part of a supportive community where listeners share experiences, tips, and encouragement.",
+  },
+];
+
+const cards = [
+  {
+    icon: "🔥",
+    title: "card 1",
+    description: 'This is the first card description.',
+    color: 'bg-red-500',
+  },
+  {
+    icon: "⚡",
+    title: "Card 2",
+    description: 'This is the second card description.',
+    color: 'bg-[#c5eaff]',
+  },
+  {
+    icon: '💎',
+    title: "Card 3",
+    description: 'This is the third card description.',
+    color: 'bg-[#95ffec]',
+  },
+];
+const sections = [
+  {
+    title: "Real-Time Support",
+    subtitle: "Connect instantly with trained listeners who are ready to hear you instead of booking in advance.",
+  },
+
+  {
+    title: "Safe & Anonymous",
+    subtitle: "Your stories are safe with us – share anonymously and freely.",
+  },
+  {
+    title: "Empathy at the Core",
+    subtitle: "Every listener is trained to understand and never judge.",
+  },
+  {
+    title: "Learn & Grow",
+    subtitle: "Explore active listening and emotional literacy through our tailored courses.",
+  },
+];
+
+---
+
+<div class="flex flex-col items-center gap-12 mx-auto px-6 lg:px-8">
+	<HeroSection
+		title="We are seen"
+		description="Where voices are heard, and hearts feel safe"
+		cards={cards}
+    headline="Seen is the first warm, safe space in the MENA region where emotions arewelcomed and understood. Through shared experiences, we connect you with empathetic trained listeners, offering a haven for your thoughts and a place to truly feel heard in a non-judgmental space."
+	/>
+	<WavySections sections={sections} />
+  <Faq faqs={faqs} />
+</div>
+
+</div>
+
+
